@@ -1,0 +1,2 @@
+# boinc-appveyor
+Scratchpad
