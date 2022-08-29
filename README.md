@@ -1,4 +1,8 @@
-# boinc-appveyor
-Scratchpad
+# Scratchpad
 
-[![Build status](https://ci.appveyor.com/api/projects/status/fg3xw5s509ig61bb/branch/master?svg=true)](https://ci.appveyor.com/project/tonigi/boinc-appveyor-scratchpad/branch/master)
+Note that the configuration file in this repo OVERRIDES appveyor configuration, except for env variables.
+
+ENV variable APPVEYOR_RDP_PASSWORD  must be set for RDP to work.
+
+
+[![Build status](https://ci.appveyor.com/api/projects/status/9cm6tdctaa6dh8nk?svg=true)](https://ci.appveyor.com/project/tonigi/plumed2-appveyor-scratchpad)
