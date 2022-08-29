@@ -23,9 +23,9 @@ install:
 build_script:
   - cmd: |
       cd
-      conda install -y conda-build
       cd plumed-feedstock
       dir recipe
+#      conda install -y conda-build
 #      conda build recipe
   
 test_script:
