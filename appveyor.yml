@@ -51,7 +51,7 @@ after_test:
   - cmd: |
        cd %APPVEYOR_BUILD_FOLDER%
        cd plumed2\regtest
-       7z a -r regtests.zip report.txt
+       7z a -r  %APPVEYOR_BUILD_FOLDER%\regtests.zip report.txt
 
 artifacts:
   - path: regtests.zip 
