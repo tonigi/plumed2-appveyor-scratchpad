@@ -39,7 +39,7 @@ test_script:
       conda install -y -c conda-forge m2-base make m2-sed m2-diffutils
       set PLUMED_ROOT=%CONDA_PREFIX%\lib\plumed
       cd %APPVEYOR_BUILD_FOLDER%
-      cd plumed\regtest\basic\rt8
+      cd plumed2\regtest\basic\rt8
       make
       
 artifacts:
