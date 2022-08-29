@@ -18,7 +18,7 @@ init:
   - cmd: conda info
 
 # TG. if this is moved to the plumed repo, the "clone" paths will need to be adjusted.
-# This check-outs under \project\reponame
+# This check-outs under \project\reponame, i.e. %APPVEYOR_BUILD_FOLDER%
 clone_script:
   - cmd: |
       cd
@@ -29,7 +29,9 @@ clone_script:
 install:  
   - cmd: conda install -y -c tonigi plumed
   
-# TG. How to build the "main" branch using the conda-build machinery? I don't know. Perhaps we can put a recipe here.
+# TG. How to build the "main" branch using the conda-build machinery? I don't know. 
+# Perhaps we can create a recipe pointing to plumed2's main. The recipe may upload the
+# built package as an artifact, or a test channel in conda-forge. Then this repo may start.
 build_script:
   - cmd: |
       cd %APPVEYOR_BUILD_FOLDER%
