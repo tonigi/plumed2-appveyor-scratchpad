@@ -20,7 +20,14 @@ clone_script:
 install:  
   - cmd: conda install -y -c tonigi plumed
   
-test:
+#build_script:
+#  - cmd: |
+#      cd
+#      conda install -y conda-build
+#      cd plumed-feedstock
+#      conda build recipe
+  
+test_script:
   - cmd: |
       conda install -y -c conda-forge m2-base make m2-sed m2-diffutils
       cd 
