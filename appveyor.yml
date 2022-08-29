@@ -20,11 +20,12 @@ clone_script:
 install:  
   - cmd: conda install -y -c tonigi plumed
   
-#build_script:
-#  - cmd: |
-#      cd
-#      conda install -y conda-build
-#      cd plumed-feedstock
+build_script:
+  - cmd: |
+      cd
+      conda install -y conda-build
+      cd plumed-feedstock
+      dir recipe
 #      conda build recipe
   
 test_script:
