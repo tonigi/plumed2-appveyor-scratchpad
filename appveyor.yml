@@ -7,9 +7,10 @@ platform: x64
 init:
   - ps: Set-WinUserLanguageList -Force 'it-IT'
   - cmd: call \miniconda38-x64\scripts\activate
+  - cmd: conda info
 
 clone_script:
-  - cmd: git clone -q --depth=5 https://github.com/plumed/plumed2.git plumed2-git
+  - cmd: git clone --depth=5 https://github.com/plumed/plumed2.git plumed2-git
 
 #  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
