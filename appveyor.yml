@@ -32,6 +32,7 @@ test_script:
   - cmd: |
       conda install -y -c conda-forge m2-base make m2-sed m2-diffutils
       set PLUMED_ROOT=%CONDA_PREFIX%\lib\plumed
+      cd
       cd plumed\regtest\basic\rt8
       make
       
