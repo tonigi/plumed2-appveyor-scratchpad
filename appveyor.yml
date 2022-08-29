@@ -11,7 +11,7 @@ init:
 
 clone_script:
   - cmd: |
-      cd \projects
+      cd
       git clone --depth=5 https://github.com/plumed/plumed2.git
       git clone https://github.com/tonigi/plumed-feedstock.git
 
@@ -22,7 +22,7 @@ install:
   
 build_script:
   - cmd: |
-      cd \projects
+      cd
       conda install -y conda-build
       cd plumed-feedstock
       dir recipe
@@ -32,9 +32,13 @@ test_script:
   - cmd: |
       conda install -y -c conda-forge m2-base make m2-sed m2-diffutils
       set PLUMED_ROOT=%CONDA_PREFIX%\lib\plumed
-      cd \projects
       cd plumed2\regtest\basic
       make
+      
+artifacts:
+  - path: **\report.txt
+    name: regtest_reports
+      
 
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
