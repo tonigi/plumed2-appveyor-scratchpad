@@ -5,8 +5,11 @@ image: Visual Studio 2022
 platform: x64
 
 # TG. The list of steps is in https://www.appveyor.com/docs/build-configuration/
+#     For interactive debugging see https://www.appveyor.com/docs/how-to/rdp-to-build-worker/
 
-# TG. for interactive debugging see https://www.appveyor.com/docs/how-to/rdp-to-build-worker/
+#     Some conflicts found: packages m2-make (ok) vs make both provide "make"
+#      "rm" et al. are provided by "git" in appveyor (incompatible with m2-*)
+
 
 # TG. the "call" below can be adjusted for the desired miniconda version
 init:
@@ -41,11 +44,12 @@ test_script:
       conda install -y -c conda-forge m2-base make m2-sed m2-diffutils
       set PLUMED_ROOT=%CONDA_PREFIX%\lib\plumed
       cd %APPVEYOR_BUILD_FOLDER%
-      cd plumed2\regtest\basic\rt8
-      make
+      make -C plumed2\regtest\basic\rt8
 
 after_test:
-  - cmd: 7z a regtests.zip plumed2\regtest\*\*\report.txt
+  - cmd: |
+       cd %APPVEYOR_BUILD_FOLDER%
+       7z a regtests.zip plumed2\regtest\*\*\report.txt
 
 artifacts:
   - path: regtests.zip 
