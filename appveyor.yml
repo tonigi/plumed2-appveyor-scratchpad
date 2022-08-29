@@ -6,7 +6,7 @@ platform: x64
 
 init:
   - ps: Set-WinUserLanguageList -Force 'it-IT'
-  - cmd: call \miniconda38-x86\scripts\activate
+  - cmd: call \miniconda38-x64\scripts\activate
 
 clone_script:
   - cmd: git clone -q --depth=5 https://github.com/plumed/plumed2.git plumed2-git
