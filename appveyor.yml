@@ -10,12 +10,22 @@ init:
   - cmd: conda info
 
 clone_script:
-  - cmd: git clone --depth=5 https://github.com/plumed/plumed2.git plumed2-git
+  - cmd: |
+    cd
+    git clone --depth=5 https://github.com/plumed/plumed2.git plumed2
+    git clone https://github.com/tonigi/plumed-feedstock
 
 #  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
-install:
+install:  
   - cmd: conda install -y -c tonigi plumed
+  
+test:
+  - cmd: |
+    conda install -y -c conda-forge m2-base make m2-sed m2-diffutils
+    cd 
+    cd plumed2\regtest\basic
+    make
 
 on_finish:
   - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
