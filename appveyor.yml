@@ -4,6 +4,8 @@ image: Visual Studio 2022
 # build platform
 platform: x64
 
+# TG. The list of steps is in https://www.appveyor.com/docs/build-configuration/
+
 # TG. for interactive debugging see https://www.appveyor.com/docs/how-to/rdp-to-build-worker/
 
 # TG. the "call" below can be adjusted for the desired miniconda version
@@ -41,10 +43,13 @@ test_script:
       cd %APPVEYOR_BUILD_FOLDER%
       cd plumed2\regtest\basic\rt8
       make
-      
+
+after_test:
+  - cmd: 7z a regtests.zip plumed2\regtest\*\*\report.txt
+
 artifacts:
-  - path: '**\report.txt'
-    name: regtest_reports
+  - path: regtests.zip 
+    name: regtests
 
 
 on_finish:
