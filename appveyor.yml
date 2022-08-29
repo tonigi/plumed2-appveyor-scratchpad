@@ -12,8 +12,8 @@ init:
 clone_script:
   - cmd: |
       cd
-      git clone --depth=5 https://github.com/plumed/plumed2.git plumed2
-      git clone https://github.com/tonigi/plumed-feedstock
+      git clone --depth=5 https://github.com/plumed/plumed2.git
+      git clone https://github.com/tonigi/plumed-feedstock.git
 
 #  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
