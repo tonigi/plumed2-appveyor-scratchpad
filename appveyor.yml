@@ -36,7 +36,7 @@ test_script:
       make
       
 artifacts:
-  - path: **\report.txt
+  - path: '**\report.txt'
     name: regtest_reports
 
 
